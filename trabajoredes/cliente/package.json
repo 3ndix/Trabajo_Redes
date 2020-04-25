@@ -2,7 +2,7 @@
   "name": "cliente",
   "version": "1.0.0",
   "description": "A Vue.js project",
-  "author": "Grupo4 Redes",
+  "author": "3ndix <cristian.flores3597@hotmail.com>",
   "private": true,
   "scripts": {
     "dev": "webpack-dev-server --inline --progress --config build/webpack.dev.conf.js",
