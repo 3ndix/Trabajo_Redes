@@ -2,6 +2,11 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import HelloWorld from '@/components/HelloWorld'
 import UserList from '@/components/User/UserList'
+import EditUser from '@/components/User/EditUser'
+import DeleteUser from '@/components/User/DeleteUser'
+import NewUser from '@/components/User/NewUser'
+import SaludoUser from '@/components/User/SaludoUser'
+
 
 
 Vue.use(Router)
@@ -14,9 +19,29 @@ export default new Router({
       component: HelloWorld
     },
     {
-      path: '/usuarios',
+      path: '/users',
       name: 'UserList',
       component: UserList
+    },
+    {
+      path: '/users/:userId/edit',
+      name: 'EditUser',
+      component: EditUser
+    },
+    {
+      path: '/users/:userId/delete',
+      name: 'DeleteUser',
+      component: DeleteUser
+    },
+    {
+      path: '/users/new',
+      name: 'NewUser',
+      component: NewUser
+    },
+    {
+      path: '/users/:userId/saludo',
+      name: 'SaludoUser',
+      component: SaludoUser
     }
   ],
   mode: 'history'
