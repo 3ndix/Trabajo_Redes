@@ -19,6 +19,8 @@ class User(models.Model):
         self.genero = self.genero.upper()
 
         rut1 = self.rut
+        self.rut = self.rut.replace(".", "")
+        self.rut = self.rut.replace("-", "")
         rut1 = rut1.replace(".", "")
         rut1 = rut1.replace("-", "")
 
@@ -35,5 +37,26 @@ class User(models.Model):
             self.comprut = True
         else:
             self.comprut = "caca"
+
+
+        self.rut = self.rut[::-1]
+        ct=0
+        for indice in range(len(self.rut)):
+            if ct==0:
+                aux1=self.rut[indice]
+            if ct==3:
+                aux2="-"+self.rut[indice-2]+self.rut[indice-1]+self.rut[indice]+"."
+            if ct==6:
+                aux3=self.rut[indice-2]+self.rut[indice-1]+self.rut[indice]+"."
+            if ct==7:
+                aux4=self.rut[indice]
+            if ct>7:
+                aux4=aux4+self.rut[indice]
+            ct=ct+1
+
+        self.rut = aux1+aux2+aux3+aux4
+        self.rut = self.rut[::-1]
+
+
 
         return super(User, self).save(*args, **kwargs)

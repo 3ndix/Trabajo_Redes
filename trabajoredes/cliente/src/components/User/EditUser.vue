@@ -100,12 +100,6 @@ export default {
         swal("Usuario actualizado exitosamente!", "", "success")
 
       this.$router.push('/users');
-
-        // alert("Hola Sr."+" "+this.form.nombres+" "+this.form.ap_paterno+" "+this.form.ap_materno)
-
-        // alert("Hola Sra."+" "+this.form.nombres+" "+this.form.ap_paterno+" "+this.form.ap_materno)
-        // if (this.form.genero == "")
-        //   alert()
       })
       .catch((response) => {
         console.log(error)

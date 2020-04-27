@@ -13,14 +13,11 @@
         <div class="col-md-12">
           <b-table striped hover :items="users" :fields="fields">
             <template v-slot:cell(action)="data">
-              <b-button size="sm" variant="primary" :to="{ name: 'SaludoUser', params: {userId: data.item.id} }">
-                Saludar
+              <b-button size="sm" variant="primary" :to="{ name: 'VerUser', params: {userId: data.item.id} }">
+                Ver
               </b-button>
               <b-button size="sm" variant="primary" :to="{ name: 'EditUser', params: {userId: data.item.id} }">
                 Editar
-              </b-button>
-              <b-button size="sm" variant="danger" :to="{ name: 'DeleteUser', params: {userId: data.item.id} }">
-                Eliminar
               </b-button>
             </template>
           </b-table>
@@ -37,13 +34,11 @@ import swal from 'sweetalert'
 export default {
     data () {
       return {
+        userId: this.$route.params.userId,
         fields: [
-          { key: 'rut_comp', label: '' },
-          { key: 'rut', label: 'Rut'},
           { key: 'nombres', label: 'Nombres' },
           { key: 'ap_paterno', label: 'Apellido Paterno' },
           { key: 'ap_materno', label: 'Apellido Materno' },
-          { key: 'genero', label: 'Género' },
           { key: 'action', label: '' }
         ],
         users: []

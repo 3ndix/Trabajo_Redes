@@ -12,7 +12,7 @@
         <div class="card">
           <div class="card-body">
 
-            <form @submit="onSubmit">
+            <form>
 
               <div class="form-group row">
                 <label for="rut" class="col-sm-2 col-form-label">Rut</label>
@@ -49,7 +49,7 @@
               <label></label>
               <div class="rows">
                 <div class="col text-left">
-                  <b-button id="example-2" type="submit" v-on:click="saludar" size="sm" variant="primary">
+                  <b-button type="submit" v-on:click="saludar" size="sm" variant="primary">
                     Saludar
                   </b-button>
                   <b-button type="submit" btn="btn-large-space" :to="{ name: 'UserList' }">Salir</b-button>
@@ -79,35 +79,24 @@ export default {
       }
     }
   },
-  data() {
-    return {
-      userId: this.$route.params.userId,
-      form: {
-        rut: '',
-        nombres: '',
-        ap_paterno: '',
-        ap_materno: '',
-        genero: ''
-      }
-    }
-  },
+
   methods: {
-    onSubmit(evt){
-      evt.preventDefault()
-      const path = 'http://localhost:8000/api/v1.0/users/'+this.userId+'/'
-
-      axios.put(path, this.form).then((response) => {
-        this.form.rut = response.data.rut
-        this.form.nombres = response.data.nombres
-        this.form.ap_paterno = response.data.ap_paterno
-        this.form.ap_materno = response.data.ap_materno
-        this.form.genero = response.data.genero
-
-      })
-      .catch((response) => {
-        console.log(error)
-      })
-    },
+    // onSubmit(evt){
+    //   evt.preventDefault()
+    //   const path = 'http://localhost:8000/api/v1.0/users/'+this.userId+'/'
+    //
+    //   axios.put(path, this.form).then((response) => {
+    //     this.form.rut = response.data.rut
+    //     this.form.nombres = response.data.nombres
+    //     this.form.ap_paterno = response.data.ap_paterno
+    //     this.form.ap_materno = response.data.ap_materno
+    //     this.form.genero = response.data.genero
+    //
+    //   })
+    //   .catch((response) => {
+    //     console.log(error)
+    //   })
+    // },
     saludar: function (event) {
       const path = 'http://localhost:8000/api/v1.0/users/'+this.userId+'/'
 

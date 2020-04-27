@@ -6,6 +6,7 @@ import EditUser from '@/components/User/EditUser'
 import DeleteUser from '@/components/User/DeleteUser'
 import NewUser from '@/components/User/NewUser'
 import SaludoUser from '@/components/User/SaludoUser'
+import VerUser from '@/components/User/VerUser'
 
 
 
@@ -29,19 +30,14 @@ export default new Router({
       component: EditUser
     },
     {
-      path: '/users/:userId/delete',
-      name: 'DeleteUser',
-      component: DeleteUser
-    },
-    {
       path: '/users/new',
       name: 'NewUser',
       component: NewUser
     },
     {
-      path: '/users/:userId/saludo',
-      name: 'SaludoUser',
-      component: SaludoUser
+      path: '/users/:userId/datos',
+      name: 'VerUser',
+      component: VerUser
     }
   ],
   mode: 'history'
