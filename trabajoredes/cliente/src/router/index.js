@@ -3,9 +3,7 @@ import Router from 'vue-router'
 import HelloWorld from '@/components/HelloWorld'
 import UserList from '@/components/User/UserList'
 import EditUser from '@/components/User/EditUser'
-import DeleteUser from '@/components/User/DeleteUser'
 import NewUser from '@/components/User/NewUser'
-import SaludoUser from '@/components/User/SaludoUser'
 import VerUser from '@/components/User/VerUser'
 
 

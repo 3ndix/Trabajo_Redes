@@ -17,6 +17,9 @@
           <b-button type="submit" v-on:click="saludar" variant="primary">
             Saludar
           </b-button>
+          <b-button variant="primary" :to="{ name: 'EditUser' }">
+            Editar
+          </b-button>
           <b-button variant="primary" :to="{ name: 'UserList' }">
             Salir
           </b-button>
@@ -44,36 +47,30 @@ export default {
       },
     }
   },
-  data2 () {
-    return {
-      userId: this.$route.params.userId,
-      form: {
-        rut: '',
-        nombres: '',
-        ap_paterno: '',
-        ap_materno: '',
-        genero: ''
-      }
-    }
-  },
   methods: {
     saludar: function (event) {
       const path = 'http://localhost:8000/api/v1.0/users/'+this.userId+'/'
 
-      axios.put(path, this.form).then((response) => {
-        this.form.rut = response.data2.rut
-        this.form.nombres = response.data2.nombres
-        this.form.ap_paterno = response.data2.ap_paterno
-        this.form.ap_materno = response.data2.ap_materno
-        this.form.genero = response.data2.genero
-        if (this.form.genero=="M"){
-          swal("Hola Sr."+" "+this.form.nombres+" "+this.form.ap_paterno+" "+this.form.ap_materno)
+      axios.get(path).then((response) => {
+        this.element.rut = response.data.rut
+        this.element.nombres = response.data.nombres
+        this.element.ap_paterno = response.data.ap_paterno
+        this.element.ap_materno = response.data.ap_materno
+        this.element.genero = response.data.genero
+        if (this.element.genero=="M"){
+          swal({
+            title: "Hola Sr."+" "+this.element.nombres+" "+this.element.ap_paterno+" "+this.element.ap_materno,
+          })
         }
-        if (this.form.genero=="F"){
-          swal("Hola Sra."+" "+this.form.nombres+" "+this.form.ap_paterno+" "+this.form.ap_materno)
+        if (this.element.genero=="F"){
+          swal({
+            title: "Hola Sra."+" "+this.element.nombres+" "+this.element.ap_paterno+" "+this.element.ap_materno,
+          })
         }
-        if (this.form.genero=="ND"){
-          swal("Hola"+" "+this.form.nombres+" "+this.form.ap_paterno+" "+this.form.ap_materno)
+        if (this.element.genero=="ND"){
+          swal({
+            title: "Hola "+" "+this.element.nombres+" "+this.element.ap_paterno+" "+this.element.ap_materno,
+          })
         }
       })
     },
@@ -109,9 +106,9 @@ export default {
           .catch((error) => {
             swal("No es posible eliminar el Usuario", "", "error")
           })
+          swal("Usuario eliminado exitosamente!", "", "success")
+          this.$router.push('/users');
         }
-        swal("Usuario eliminado exitosamente!", "", "success")
-        this.$router.push('/users');
       })
     }
   },
