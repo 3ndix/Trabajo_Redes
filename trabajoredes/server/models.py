@@ -36,7 +36,9 @@ class User(models.Model):
         elif dv == "K" and res==10:
             self.comprut = True
         else:
-            self.comprut = ""
+            self.comprut = False
+        if self.comprut == False:
+            self.comprut = "caca"
 
 
         self.rut = self.rut[::-1]

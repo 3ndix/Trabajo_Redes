@@ -46,10 +46,9 @@
                 <div class="form-row align-items-center">
                   <div class="col-auto my-1">
                     <select class="custom-select mr-sm-3" id="inlineFormCustomSelect" v-model.trim="form.genero">
-                      <option selected>Elegir...</option>
                       <option value="F">Femenino</option>
                       <option value="M">Masculino</option>
-                      <option value="">Prefiero no elegir</option>
+                      <option value="ND">Prefiero no elegir</option>
                     </select>
                   </div>
                 </div>
@@ -81,7 +80,7 @@ export default {
         nombres: '',
         ap_paterno: '',
         ap_materno: '',
-        genero: 'Elegir...'
+        genero: ''
       }
     }
   },
@@ -98,12 +97,11 @@ export default {
         this.form.genero = response.data.genero
 
         swal("Usuario creado exitosamente!", "", "success")
-
-      this.$router.push('/users');
+        this.$router.push('/users');
 
       })
       .catch((response) => {
-        swal("El RUT es inválido", "", "error")
+        swal("Faltan campos por llenar, o el RUT es inválido", "", "error")
       })
     },
   },

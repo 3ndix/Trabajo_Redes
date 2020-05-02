@@ -102,7 +102,7 @@ export default {
       this.$router.push('/users');
       })
       .catch((response) => {
-        swal("El RUT es inválido", "", "error")
+        swal("Faltan campos por llenar, o el RUT es inválido", "", "error")
       })
     },
     getUser (){
