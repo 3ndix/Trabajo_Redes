@@ -44,3 +44,5 @@ Para levantar el cliente entramos a la carpeta del cliente Trabajo_Redes\REST\cl
 npm run dev
 
 ```
+
+Finalmente con el servidor y cliente arriba entramos a la dirrecion url http://localhost:8080/users para visualizar la interfaz
