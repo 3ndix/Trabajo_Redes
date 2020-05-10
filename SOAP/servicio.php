@@ -87,6 +87,7 @@ function FuncionRut($Rut){
 }
 
 $httpPost = file_get_contents( 'php://input' ); 
+
 $servicio->service($httpPost);
 
 
