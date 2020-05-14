@@ -16,7 +16,7 @@ pip install django-cors-headers
 
 ```
 
-Luego con npm de Node.js ejecutamos los siguientes comandos.
+Luego con npm de Node.js en la carpeta Trabajo_Redes\REST\cliente\ ejecutamos los siguientes comandos.
 
 ```
 
